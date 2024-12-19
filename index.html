@@ -6,6 +6,8 @@
     <title>Voice Bridge</title>
     <link href="style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -17,10 +19,13 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -29,28 +34,46 @@
             </form>
           </div>
         </div>
-      </nav>
+    </nav>
     
-    <div class="text-bg-secondary p-3">
+    <div id="home" class="text-bg-secondary p-3">
+        <h1>TEXT TO SPEECH</h1>
+        <textarea id="text-input" class="form-control" placeholder="Enter text here..."></textarea>
+        <select id="tts-lang" class="form-select mt-2">
+          </select>
+        <button id="speak-btn" class="btn btn-primary mt-2">Speak</button>
+    </div>
+    
+    <div id="speech-to-text" class="p-3">
+      <h2>Speech to Text</h2>
+      <div class="mb-3">
+          <label for="stt-output-lang" class="form-label">Translate speech to:</label>
+          <select id="stt-output-lang" class="form-select"></select>
+      </div>
+      <button id="record-btn" class="btn btn-primary">Start Recording</button>
+      <p id="transcript" class="mt-2"></p>
+      <p id="translated-transcript" class="mt-2"></p>
+  </div>
 
-    <h1>TEXT TO SPEECH</h1>
-    <div class="from">
-        <h2>Enter text</h2>
-        <input>
-        <select name="from" id="0"></select>
+    <div id="sign-language" class="p-3">
+        <h2>Sign Language Gesture Recognition</h2>
+        <video id="video" width="640" height="480" autoplay class="border"></video>
+        <p id="gesture-result" class="mt-2">Gesture: None</p>
     </div>
-    <button id="fromBtn">Speak</button>
-    <div class="to">
-        <h2>Translated text</h2>
-        <input>
-        <select name="to" id="1"></select>
+
+    <div id="about" class="p-3">
+        <h2>About</h2>
+        <p>This is the about section.</p>
     </div>
-    <button id="toBtn">Speak</button>
-    <button id="translate">TRANSLATE</button>
+
+    <div id="contact" class="p-3">
+        <h2>Contact</h2>
+        <p>This is the contact section.</p>
+    </div>
+
     <script src="lang.js"></script>
     <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
